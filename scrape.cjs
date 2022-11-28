@@ -15,12 +15,12 @@ axios(url)
     const html = response.data;
     const $ = cheerio.load(html);
     $(".fixres__item", html).each(function () {
-      let title = $(this).text().replace(/ /g, "");
-      title = title.split("\n").filter(FilterEmptyCells);
-      const first_country = title[0]; // first country
-      const first_country_result = title[1]; // first country result
-      const second_country_result = title[2]; // second country result
-      const second_country = title[4]; // second country
+      let match = $(this).text().replace(/ /g, "");
+      match = match.split("\n").filter(FilterEmptyCells);
+      const first_country = match[0]; // first country
+      const first_country_result = match[1]; // first country result
+      const second_country_result = match[2]; // second country result
+      const second_country = match[4]; // second country
       matches.push({
         first_country,
         first_country_result,
